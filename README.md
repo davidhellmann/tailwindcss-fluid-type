@@ -1,6 +1,6 @@
 # 👉🏻 tailwindcss-fluid-type 
 
-![Tailwincss Fluid Type](tailwindcss-fluid-type.png)
+![Tailwincss Fluid Type](https://github.com/davidhellmann/tailwindcss-fluid-type/raw/main/tailwindcss-fluid-type.png)
 
 A plugin that makes the use of Fluid Type a breeze. 
 
