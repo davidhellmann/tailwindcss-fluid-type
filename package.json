@@ -7,6 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": ["modular-scale", "fluid-type", "tailwindcss"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/davidhellmann/tailwindcss-fluid-type.git"
