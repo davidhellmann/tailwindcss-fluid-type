@@ -1,0 +1,19 @@
+{
+  "name": "tailwindcss-fluid-type",
+  "version": "1.0.0",
+  "description": "Bring fluid type to tailwindcss",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidhellmann/tailwindcss-fluid-type.git"
+  },
+  "author": "David Hellmann",
+  "bugs": {
+    "url": "https://github.com/davidhellmann/tailwindcss-fluid-type/issues"
+  },
+  "homepage": "https://github.com/davidhellmann/tailwindcss-fluid-type#readme"
+}
