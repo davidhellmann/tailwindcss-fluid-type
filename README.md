@@ -1,0 +1,1 @@
+# tailwindcss-fluid-type
