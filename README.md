@@ -44,7 +44,7 @@ Nothing changed here to the default tailwindcss configuration:
 ```
 
 ## 👉🏻 Configuration
-The plugin comes with a default configuration (see below) but it's possible to customize this config for your project:
+The plugin comes with a default configuration (see below) but it's possible to customize this config for your project. As default, we use `rem` for better accessibility, but you can also use `px`:
 ```js
 // tailwind.config.js
 module.exports = {
@@ -58,7 +58,8 @@ module.exports = {
       ratioMin: 1.125, // Multiplicator Min
       ratioMax: 1.2, // Multiplicator Max
       screenMin: 20, // 20rem === 320px
-      screenMax: 96 // 96rem === 1536px
+      screenMax: 96, // 96rem === 1536px
+      unit: 'rem' // default is rem but it's also possible to use 'px'
     },
     // Creates the text-xx classes
     // This are the default settings and analog to the tailwindcss defaults
