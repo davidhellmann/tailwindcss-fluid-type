@@ -81,7 +81,7 @@ module.exports = {
     },
   },
   variants: {
-    aspectRatio: ['responsive']
+    fluidType: ['responsive']
   }
 };
 ```
