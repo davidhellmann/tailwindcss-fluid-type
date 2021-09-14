@@ -1,7 +1,7 @@
 const plugin = require('tailwindcss/plugin')
 
 module.exports = plugin(
-    function ({addComponents, theme, variants, e}) {
+    function ({addUtilities, theme, variants, e}) {
         const values = theme('fluidType');
         const settingsAsArray = Object.entries(theme('fluidTypeSettings'));
         const settingsAsArrayFiltered = settingsAsArray.filter(([key, value]) => key !== 'unit');
@@ -28,7 +28,7 @@ module.exports = plugin(
             return value;
         };
 
-        addComponents(
+        addUtilities(
             [
                 Object.entries(values).map(([key, value]) => {
                     let output = {};
