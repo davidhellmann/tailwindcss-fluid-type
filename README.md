@@ -246,3 +246,6 @@ module.exports = {
     letter-spacing: -0.1rem;
 }
 ```
+
+## 👉🏻 Live Demo
+[Fluid Type Live Demo](https://play.tailwindcss.com/vxnQwJvrQA)
