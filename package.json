@@ -1,13 +1,20 @@
 {
   "name": "tailwindcss-fluid-type",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Bring fluid type to tailwindcss",
   "main": "src/index.js",
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["modular-scale", "fluid-type", "tailwindcss"],
+  "peerDependencies": {
+    "tailwindcss": ">=2.0.0"
+  },
+  "keywords": [
+    "modular-scale",
+    "fluid-type",
+    "tailwindcss"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/davidhellmann/tailwindcss-fluid-type.git"
@@ -16,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/davidhellmann/tailwindcss-fluid-type/issues"
   },
-  "homepage": "https://github.com/davidhellmann/tailwindcss-fluid-type#readme"
+  "homepage": "https://github.com/davidhellmann/tailwindcss-fluid-type#readme",
+  "devDependencies": {
+    "tailwindcss": "^2.2.15"
+  }
 }
