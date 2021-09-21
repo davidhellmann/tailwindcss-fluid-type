@@ -25,8 +25,9 @@ module.exports = {
     theme: {
         // ...
     },
-    // You have to disable the fontSize core 
-    // plugins otherwise it doesn't work
+    // You can disable the fontSize core plugin if you don't need the defaults. 
+    // If you don't disable it, the fluid-type plugin simply overrule the defaults.
+    // Or you can use both alongside when you set an prefix in the settings
     corePlugins: {
         fontSize: false,
         // ...
@@ -60,35 +61,38 @@ As default, we use `rem` for better accessibility, but you can also use `px`.
 // tailwind.config.js
 module.exports = {
     theme: {
-        // your fluid type settings
-        // works only with unitless numbers
-        // This numbers are the defaults settings
-        fluidTypeSettings: {
-            fontSizeMin: 1.125, // 1.125rem === 18px
-            fontSizeMax: 1.25, // 1.25rem === 20px
-            ratioMin: 1.125, // Multiplicator Min
-            ratioMax: 1.2, // Multiplicator Max
-            screenMin: 20, // 20rem === 320px
-            screenMax: 96, // 96rem === 1536px
-            unit: 'rem' // default is rem but it's also possible to use 'px'
-        },
-        // Creates the text-xx classes
-        // This are the default settings and analog to the tailwindcss defaults
-        // Each `lineHeight` is set unitless and we think that's the way to go especially in context with fluid type. 
         fluidType: {
-            'xs': [-2, 1.6],
-            'sm': [-1, 1.6],
-            'base': [0, 1.6],
-            'lg': [1, 1.6],
-            'xl': [2, 1.2],
-            '2xl': [3, 1.2],
-            '3xl': [4, 1.2],
-            '4xl': [5, 1.1],
-            '5xl': [6, 1.1],
-            '6xl': [7, 1.1],
-            '7xl': [8, 1],
-            '8xl': [9, 1],
-            '9xl': [10, 1],
+            // your fluid type settings
+            // works only with unitless numbers
+            // This numbers are the defaults settings
+            settings: {
+                fontSizeMin: 1.125, // 1.125rem === 18px
+                fontSizeMax: 1.25, // 1.25rem === 20px
+                ratioMin: 1.125, // Multiplicator Min
+                ratioMax: 1.2, // Multiplicator Max
+                screenMin: 20, // 20rem === 320px
+                screenMax: 96, // 96rem === 1536px
+                unit: 'rem', // default is rem but it's also possible to use 'px'
+                prefix: '' // set a prefix to use it alongside the default font sizes
+            },
+            // Creates the text-xx classes
+            // This are the default settings and analog to the tailwindcss defaults
+            // Each `lineHeight` is set unitless and we think that's the way to go especially in context with fluid type.
+            values: {
+                'xs': [-2, 1.6],
+                'sm': [-1, 1.6],
+                'base': [0, 1.6],
+                'lg': [1, 1.6],
+                'xl': [2, 1.2],
+                '2xl': [3, 1.2],
+                '3xl': [4, 1.2],
+                '4xl': [5, 1.1],
+                '5xl': [6, 1.1],
+                '6xl': [7, 1.1],
+                '7xl': [8, 1],
+                '8xl': [9, 1],
+                '9xl': [10, 1],
+            }
         },
     },
     variants: {
@@ -106,9 +110,11 @@ It is also possible to set just the `fontSize` without set the `lineHeight`
 module.exports = {
     theme: {
         fluidType: {
-            // ...
-            'base': 0,
-            // ...
+            values: {
+                // ...
+                'base': 0,
+                // ...
+            }
         }
     }
 };
@@ -124,14 +130,16 @@ documentation. `letterSpacing` can be all values that you like.
 module.exports = {
     theme: {
         fluidType: {
-            // ...
-            'base': [0,
-                {
-                    lineHeight: 1.6,
-                    letterSpacing: '-0.1rem',
-                }
-            ],
-            // ...
+            values: {
+                // ...
+                'base': [0,
+                    {
+                        lineHeight: 1.6,
+                        letterSpacing: '-0.1rem',
+                    }
+                ],
+                // ...
+            }
         }
     }
 };
@@ -145,19 +153,22 @@ module.exports = {
 // tailwind.config.js
 module.exports = {
     theme: {
-        fluidTypeSettings: {
-            fontSizeMin: 1.125,
-            fontSizeMax: 1.25,
-            ratioMin: 1.125,
-            ratioMax: 1.2,
-            screenMin: 20,
-            screenMax: 96,
-            unit: 'rem'
-        },
         fluidType: {
-            // ...
-            'base': 0,
-            // ...
+            settings: {
+                fontSizeMin: 1.125,
+                fontSizeMax: 1.25,
+                ratioMin: 1.125,
+                ratioMax: 1.2,
+                screenMin: 20,
+                screenMax: 96,
+                unit: 'rem',
+                prefix: ''
+            },
+            values: {
+                // ...
+                'base': 0,
+                // ...
+            }
         }
     }
 };
@@ -179,19 +190,22 @@ module.exports = {
 // tailwind.config.js
 module.exports = {
     theme: {
-        fluidTypeSettings: {
-            fontSizeMin: 1.125,
-            fontSizeMax: 1.25,
-            ratioMin: 1.125,
-            ratioMax: 1.2,
-            screenMin: 20,
-            screenMax: 96,
-            unit: 'rem'
-        },
         fluidType: {
-            // ...
-            'base': [0, 1.6],
-            // ...
+            settings: {
+                fontSizeMin: 1.125,
+                fontSizeMax: 1.25,
+                ratioMin: 1.125,
+                ratioMax: 1.2,
+                screenMin: 20,
+                screenMax: 96,
+                unit: 'rem',
+                prefix: ''                
+            },
+            values: {
+                // ...
+                'base': [0, 1.6],
+                // ...
+            }
         }
     }
 };
@@ -214,22 +228,25 @@ module.exports = {
 // tailwind.config.js
 module.exports = {
     theme: {
-        fluidTypeSettings: {
-            fontSizeMin: 1.125,
-            fontSizeMax: 1.25,
-            ratioMin: 1.125,
-            ratioMax: 1.2,
-            screenMin: 20,
-            screenMax: 96,
-            unit: 'rem'
-        },
         fluidType: {
-            // ...
-            'base': [0, {
-                lineHeight: 1.6,
-                letterSpacing: '-0.1rem',
-            }],
-            // ...
+            settings: {
+                fontSizeMin: 1.125,
+                fontSizeMax: 1.25,
+                ratioMin: 1.125,
+                ratioMax: 1.2,
+                screenMin: 20,
+                screenMax: 96,
+                unit: 'rem',
+                prefix: '',
+            },
+            values: {
+                // ...
+                'base': [0, {
+                    lineHeight: 1.6,
+                    letterSpacing: '-0.1rem',
+                }],
+                // ...
+            }
         }
     }
 };
@@ -247,5 +264,36 @@ module.exports = {
 }
 ```
 
+### Set a prefix
+
+```js
+// tailwind.config.js
+module.exports = {
+    theme: {
+        extend: {
+            fluidType: {
+                settings: {
+                    // ...
+                    prefix: 'fluid-',
+                },
+            }
+        }
+    }
+};
+```
+
+```html
+<p class="fluid-text-base">The quick brown fox jumps over the lazy dogs</p>
+```
+
+```css
+.fluid-text-base {
+    font-size: clamp(1.125rem, calc(1.125rem + (1.25 - 1.125) * ((100vw - 20rem) / (96 - 20))), 1.25rem);
+    line-height: 1.6;
+    letter-spacing: -0.1rem;
+}
+```
+
+
 ## 👉🏻 Live Demo
-[Fluid Type Live Demo](https://play.tailwindcss.com/vxnQwJvrQA)
+[Fluid Type Live Demo](https://play.tailwindcss.com/3LDf3gzbhb)

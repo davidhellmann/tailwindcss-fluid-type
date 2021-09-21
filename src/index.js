@@ -1,10 +1,40 @@
 const plugin = require('tailwindcss/plugin')
+// Defaults
+const DEFAULT_SETTINGS = {
+    fontSizeMin: 1.125,
+    fontSizeMax: 1.25,
+    ratioMin: 1.125,
+    ratioMax: 1.2,
+    screenMin: 20,
+    screenMax: 96,
+    unit: 'rem',
+    prefix: '',
+}
+const DEFAULT_VALUES = {
+    'xs': [-2, 1.6],
+    'sm': [-1, 1.6],
+    'base': [0, 1.6],
+    'lg': [1, 1.6],
+    'xl': [2, 1.2],
+    '2xl': [3, 1.2],
+    '3xl': [4, 1.2],
+    '4xl': [5, 1.1],
+    '5xl': [6, 1.1],
+    '6xl': [7, 1.1],
+    '7xl': [8, 1],
+    '8xl': [9, 1],
+    '9xl': [10, 1],
+}
+const DEFAULT_VARIANTS = ['responsive']
 
 module.exports = plugin(
     function ({addUtilities, theme, variants, e}) {
-        const values = theme('fluidType');
-        const settingsAsArray = Object.entries(theme('fluidTypeSettings'));
-        const settingsAsArrayFiltered = settingsAsArray.filter(([key, value]) => key !== 'unit');
+        const values = theme('fluidType.values', DEFAULT_VALUES);
+        const prefix = theme('fluidType.settings.prefix', DEFAULT_SETTINGS.prefix);
+        const settingsAsArray = Object.entries(theme('fluidType.settings', DEFAULT_SETTINGS));
+        const settingsAsArrayFiltered = settingsAsArray
+            .filter(([key, value]) => key !== 'unit')
+            .filter(([key, value]) => key !== 'prefix');
         const finalSettings = Object.fromEntries(settingsAsArrayFiltered);
         const settingsAreNumbers = Object
             .values(finalSettings)
@@ -12,13 +42,15 @@ module.exports = plugin(
 
         const calcModularScale = (value = 0) => {
             if (settingsAreNumbers) {
-                const sFtMin = theme('fluidTypeSettings.fontSizeMin');
-                const sFtMax = theme('fluidTypeSettings.fontSizeMax');
-                const sFtRMin = theme('fluidTypeSettings.ratioMin');
-                const sFtRMax = theme('fluidTypeSettings.ratioMax');
-                const sFtSMin = theme('fluidTypeSettings.screenMin');
-                const sFtSMax = theme('fluidTypeSettings.screenMax');
-                const sFtUnit = typeof theme('fluidTypeSettings.unit') === 'string' ? theme('fluidTypeSettings.unit') : 'rem';
+                const sFtMin = theme('fluidType.settings.fontSizeMin', DEFAULT_SETTINGS.fontSizeMin);
+                const sFtMax = theme('fluidType.settings.fontSizeMax', DEFAULT_SETTINGS.fontSizeMax);
+                const sFtRMin = theme('fluidType.settings.ratioMin', DEFAULT_SETTINGS.ratioMin);
+                const sFtRMax = theme('fluidType.settings.ratioMax', DEFAULT_SETTINGS.ratioMax);
+                const sFtSMin = theme('fluidType.settings.screenMin', DEFAULT_SETTINGS.screenMin);
+                const sFtSMax = theme('fluidType.settings.screenMax', DEFAULT_SETTINGS.screenMax);
+                const sFtUnit = typeof theme('fluidType.settings.unit', DEFAULT_SETTINGS.unit) === 'string'
+                    ? theme('fluidType.settings.unit', DEFAULT_SETTINGS.unit)
+                    : 'rem';
                 const ftMin = sFtMin * Math.pow(sFtRMin, value);
                 const ftMax = sFtMax * Math.pow(sFtRMax, value);
                 return `clamp(${ftMin}${sFtUnit},
@@ -66,42 +98,22 @@ module.exports = plugin(
                     }
 
                     return {
-                        [`.${e(`text-${key}`)}`]: output,
+                        [`.${e(`${prefix}text-${key}`)}`]: output,
                     }
                 }),
             ],
-            variants('fluidType')
+            variants('fluidType', DEFAULT_VARIANTS)
         )
     },
     {
         theme: {
-            fluidTypeSettings: {
-                fontSizeMin: 1.125,
-                fontSizeMax: 1.25,
-                ratioMin: 1.125,
-                ratioMax: 1.2,
-                screenMin: 20,
-                screenMax: 96,
-                unit: 'rem'
-            },
             fluidType: {
-                'xs': [-2, 1.6],
-                'sm': [-1, 1.6],
-                'base': [0, 1.6],
-                'lg': [1, 1.6],
-                'xl': [2, 1.2],
-                '2xl': [3, 1.2],
-                '3xl': [4, 1.2],
-                '4xl': [5, 1.1],
-                '5xl': [6, 1.1],
-                '6xl': [7, 1.1],
-                '7xl': [8, 1],
-                '8xl': [9, 1],
-                '9xl': [10, 1],
+                settings: DEFAULT_SETTINGS,
+                values: DEFAULT_VALUES
             },
         },
         variants: {
-            fluidType: ['responsive'],
+            fluidType: DEFAULT_VARIANTS,
         },
     }
 )
