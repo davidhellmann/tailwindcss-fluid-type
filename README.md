@@ -264,6 +264,34 @@ module.exports = {
 }
 ```
 
+### Set a value as string
+```js
+// tailwind.config.js
+module.exports = {
+    theme: {
+        extend: {
+            fluidType: {
+                values: {
+                    // ...
+                    '2xs': '11px',
+                    // ...
+                }
+            }
+        }
+    }
+};
+```
+
+```html
+<p class="text-2xs">The quick brown fox jumps over the lazy dogs</p>
+```
+
+```css
+.text-2xs {
+    font-size: 11px;
+}
+```
+
 ### Set a prefix
 
 ```js

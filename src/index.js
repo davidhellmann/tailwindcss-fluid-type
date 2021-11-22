@@ -65,9 +65,14 @@ module.exports = plugin(
                 Object.entries(values).map(([key, value]) => {
                     let output = {};
 
-                    // Check if value a number
+                    // Check if value is a string
+                    if (typeof value === 'string') {
+                        output.fontSize = value
+                    }
+
+                    // Check if value is a number
                     if (Number.isInteger(value)) {
-                        output.fontSize = Number.isInteger(value) ? calcModularScale(value) : value
+                        output.fontSize = calcModularScale(value)
                     }
 
                     // Check if value is array with length 1
