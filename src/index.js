@@ -53,9 +53,7 @@ module.exports = plugin(
                     : 'rem';
                 const ftMin = sFtMin * Math.pow(sFtRMin, value);
                 const ftMax = sFtMax * Math.pow(sFtRMax, value);
-                return `clamp(${ftMin}${sFtUnit},
-                calc(${ftMin}${sFtUnit} + (${ftMax} - ${ftMin}) * ((100vw - ${sFtSMin}${sFtUnit}) / (${sFtSMax} - ${sFtSMin}))),
-                ${ftMax}${sFtUnit})`;
+                return `clamp(${ftMin}${sFtUnit}, calc(${ftMin}${sFtUnit} + ((${ftMax} - ${ftMin}) * ((100vw - ${sFtSMin}${sFtUnit}) / (${sFtSMax} - ${sFtSMin})))), ${ftMax}${sFtUnit})`;
             }
             return value;
         };
