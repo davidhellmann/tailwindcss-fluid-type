@@ -13,18 +13,18 @@ module.exports = (options) => {
             }
 
             // Check if value is a number
-            if (Number.isInteger(value)) {
+            if (typeof value === 'number') {
                 theme[key] = calcModularScale(value, data)
             }
 
             // Check if value is array with length 1
             if (Array.isArray(value) && value.length === 1) {
-                theme[key] = Number.isInteger(value[0]) ? calcModularScale(value[0], data) : value[0]
+                theme[key] = typeof value[0] === 'number' ? calcModularScale(value[0], data) : value[0]
             }
 
             // Check if value is array with length 2
             if (Array.isArray(value) && value.length === 2) {
-                theme[key] = Number.isInteger(value[0]) ? calcModularScale(value[0], data) : value[0]
+                theme[key] = typeof value[0] === 'number' ? calcModularScale(value[0], data) : value[0]
             }
         })
 

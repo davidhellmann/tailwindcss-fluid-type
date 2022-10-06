@@ -15,13 +15,13 @@ module.exports = (options, e) => {
             }
 
             // Check if value is a number
-            if (Number.isInteger(value)) {
+            if (typeof value === 'number') {
                 output.fontSize = calcModularScale(value, data)
             }
 
             // Check if value is array with length 1
             if (Array.isArray(value) && value.length === 1) {
-                output.fontSize = Number.isInteger(value[0]) ? calcModularScale(value[0], data) : value[0]
+                output.fontSize = typeof value[0] === 'number' ? calcModularScale(value[0], data) : value[0]
             }
 
             // Check if value is array with length 2
@@ -30,7 +30,7 @@ module.exports = (options, e) => {
 
                 // Check if second value is an object
                 if (typeof value[1] === 'object' && value[1] !== null) {
-                    output.fontSize = Number.isInteger(value[0]) ? calcModularScale(value[0], data) : value[0]
+                    output.fontSize = typeof value[0] === 'number' ? calcModularScale(value[0], data) : value[0]
 
                     // Check if key lineHeight exists
                     if ("lineHeight" in value[1]) {
@@ -42,7 +42,7 @@ module.exports = (options, e) => {
                         output.letterSpacing = value[1]['letterSpacing']
                     }
                 } else {
-                    output.fontSize = Number.isInteger(value[0]) ? calcModularScale(value[0], data) : value[0]
+                    output.fontSize = typeof value[0] === 'number' ? calcModularScale(value[0], data) : value[0]
                     output.lineHeight = value[1]
                 }
             }
