@@ -12,6 +12,7 @@ module.exports = (options, data) => {
 
         // Add prefix
         data.prefix = options.settings?.prefix || defaults.settings?.prefix || ''
+        data.unit = options.settings?.unit || defaults.settings?.unit || 'rem'
 
         // Add number check
         data.settingsAreNumbers = Object
