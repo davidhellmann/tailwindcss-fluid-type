@@ -317,4 +317,4 @@ module.exports = {
 
 
 ## 👉🏻 Live Demo
-[Fluid Type Live Demo](https://play.tailwindcss.com/TegGD6vkSM)
+[Fluid Type Live Demo](https://play.tailwindcss.com/ivclEFzX4N)
