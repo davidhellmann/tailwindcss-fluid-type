@@ -22,9 +22,6 @@ Then add the plugin to your tailwind.config.js file and do your settings if you'
 
 // tailwind.config.js
 module.exports = {
-    theme: {
-        // ...
-    },
     // You can disable the fontSize core plugin if you don't need the defaults. 
     // If you don't disable it, the fluid-type plugin simply overrule the defaults.
     // Or you can use both alongside when you set an prefix in the settings
@@ -60,8 +57,8 @@ As default, we use `rem` for better accessibility, but you can also use `px`.
 ```js
 // tailwind.config.js
 module.exports = {
-    theme: {
-        fluidType: {
+    plugins: [
+        require('tailwindcss-fluid-type')({
             // your fluid type settings
             // works only with unitless numbers
             // This numbers are the defaults settings
@@ -92,9 +89,9 @@ module.exports = {
                 '7xl': [8, 1],
                 '8xl': [9, 1],
                 '9xl': [10, 1],
-            }
-        },
-    },
+            },
+        }),
+    ],
     variants: {
         fluidType: ['responsive']
     }
@@ -108,15 +105,15 @@ It is also possible to set just the `fontSize` without set the `lineHeight`
 ```js
 // tailwind.config.js
 module.exports = {
-    theme: {
-        fluidType: {
+    plugins: [
+        require('tailwindcss-fluid-type')({
             values: {
                 // ...
                 'base': 0,
                 // ...
             }
-        }
-    }
+        }),
+    ]
 };
 ```
 
@@ -128,8 +125,8 @@ documentation. `letterSpacing` can be all values that you like.
 ```js
 // tailwind.config.js
 module.exports = {
-    theme: {
-        fluidType: {
+    plugins: [
+        require('tailwindcss-fluid-type')({
             values: {
                 // ...
                 'base': [0,
@@ -140,8 +137,8 @@ module.exports = {
                 ],
                 // ...
             }
-        }
-    }
+        }),
+    ]
 };
 ```
 
@@ -152,8 +149,8 @@ module.exports = {
 ```js
 // tailwind.config.js
 module.exports = {
-    theme: {
-        fluidType: {
+    plugins: [
+        require('tailwindcss-fluid-type')({
             settings: {
                 fontSizeMin: 1.125,
                 fontSizeMax: 1.25,
@@ -169,8 +166,8 @@ module.exports = {
                 'base': 0,
                 // ...
             }
-        }
-    }
+        }),
+    ]
 };
 ```
 
@@ -189,8 +186,8 @@ module.exports = {
 ```js
 // tailwind.config.js
 module.exports = {
-    theme: {
-        fluidType: {
+    plugins: [
+        require('tailwindcss-fluid-type')({
             settings: {
                 fontSizeMin: 1.125,
                 fontSizeMax: 1.25,
@@ -199,15 +196,15 @@ module.exports = {
                 screenMin: 20,
                 screenMax: 96,
                 unit: 'rem',
-                prefix: ''                
+                prefix: ''
             },
             values: {
                 // ...
                 'base': [0, 1.6],
                 // ...
             }
-        }
-    }
+        }),
+    ]
 };
 ```
 
@@ -227,8 +224,8 @@ module.exports = {
 ```js
 // tailwind.config.js
 module.exports = {
-    theme: {
-        fluidType: {
+    plugins: [
+        require('tailwindcss-fluid-type')({
             settings: {
                 fontSizeMin: 1.125,
                 fontSizeMax: 1.25,
@@ -247,8 +244,8 @@ module.exports = {
                 }],
                 // ...
             }
-        }
-    }
+        }),
+    ]
 };
 ```
 
@@ -268,17 +265,15 @@ module.exports = {
 ```js
 // tailwind.config.js
 module.exports = {
-    theme: {
-        extend: {
-            fluidType: {
-                values: {
-                    // ...
-                    '2xs': '11px',
-                    // ...
-                }
+    plugins: [
+        require('tailwindcss-fluid-type')({
+            values: {
+                // ...
+                '2xs': '11px',
+                // ...
             }
-        }
-    }
+        }),
+    ]
 };
 ```
 
@@ -297,16 +292,14 @@ module.exports = {
 ```js
 // tailwind.config.js
 module.exports = {
-    theme: {
-        extend: {
-            fluidType: {
-                settings: {
-                    // ...
-                    prefix: 'fluid-',
-                },
-            }
-        }
-    }
+    plugins: [
+        require('tailwindcss-fluid-type')({
+            settings: {
+                // ...
+                prefix: 'fluid-',
+            },
+        }),
+    ]
 };
 ```
 
