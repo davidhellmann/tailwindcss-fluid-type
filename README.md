@@ -76,7 +76,7 @@ module.exports = {
                 screenMax: 96, // 96rem === 1536px
                 unit: 'rem', // default is rem but it's also possible to use 'px'
                 prefix: '', // set a prefix to use it alongside the default font sizes
-                extendValues: true, // When you set values it will extend the default values. Set this to false to overwrite the values.
+                extendValues: true, // When you set extendValues to true it will extend the default values. Set it to false to overwrite the values.
             },
             // Creates the text-xx classes
             // This are the default settings and analog to the tailwindcss defaults
