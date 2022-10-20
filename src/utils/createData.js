@@ -5,10 +5,23 @@ module.exports = (options, data) => {
         // Add settings
         data.settings = Object.fromEntries(Object.entries({
             ...defaults.settings, ...options?.settings
-        }).filter(([key]) => key !== 'unit').filter(([key]) => key !== 'prefix'));
+        }));
+
+        // Save extendValues
+        const extendValues = data.settings.extendValues
+
+        // Remove settings from object
+        delete data.settings.unit
+        delete data.settings.prefix
+        delete data.settings.extendValues
 
         // Add values
-        data.values = {...defaults.values, ...options?.values }
+        if (extendValues) {
+            data.values = {...defaults.values, ...options?.values }
+        } else {
+            const values = options?.values ? options?.values : defaults.values;
+            data.values = { ...values }
+        }
 
         // Add prefix
         data.prefix = options?.settings?.prefix || defaults.settings?.prefix || ''

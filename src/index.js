@@ -7,13 +7,13 @@ module.exports = plugin.withOptions(
     function (options) {
         return function ({addUtilities, variants, e}) {
             addUtilities(createClasses(options, e),
-                variants('fontSize', defaults.variants));
+                variants('fontSizeFluid', defaults.variants));
         };
     },
     function (options) {
         return {
             theme: {
-                fontSize: createThemeOptions(options, defaults)
+                fontSizeFluid: createThemeOptions(options, defaults)
             }
         };
     },
