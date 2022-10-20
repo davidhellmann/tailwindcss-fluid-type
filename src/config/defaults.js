@@ -12,6 +12,7 @@ module.exports = {
         screenMax: 96,
         unit: 'rem',
         prefix: '',
+        extendValues: true,
     },
     values: {
         'xs': [-2, 1.6],

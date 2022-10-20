@@ -22,8 +22,8 @@ Then add the plugin to your tailwind.config.js file and do your settings if you'
 
 // tailwind.config.js
 module.exports = {
-    // You can disable the fontSize core plugin if you don't need the defaults. 
-    // If you don't disable it, the fluid-type plugin simply overrule the defaults.
+    // You can disable the fontSize core plugin if you don't need non fluid font sizes. 
+    // If you don't disable it, the fluid-type plugin simply overrule the default font-sizes if the keys are the same.
     // Or you can use both alongside when you set an prefix in the settings
     corePlugins: {
         fontSize: false,
@@ -52,6 +52,11 @@ Nothing changed here to the default tailwindcss configuration:
 The plugin comes with a default configuration (see below) but it's possible to customize this config for your project.
 As default, we use `rem` for better accessibility, but you can also use `px`.
 
+---
+> **_Important Note:_**  
+> If you set values you have to set all values that you need for your `font-sizes`. There is no value merging here.
+---
+
 ### Default configuration
 
 ```js
@@ -70,7 +75,8 @@ module.exports = {
                 screenMin: 20, // 20rem === 320px
                 screenMax: 96, // 96rem === 1536px
                 unit: 'rem', // default is rem but it's also possible to use 'px'
-                prefix: '' // set a prefix to use it alongside the default font sizes
+                prefix: '', // set a prefix to use it alongside the default font sizes
+                extendValues: true, // When you set values it will extend the default values. Set this to false to overwrite the values.
             },
             // Creates the text-xx classes
             // This are the default settings and analog to the tailwindcss defaults
