@@ -19,20 +19,19 @@ yarn add tailwindcss-fluid-type
 Then add the plugin to your tailwind.config.js file and do your settings if you're not happy with the defaults:
 
 ```js
-
 // tailwind.config.js
 module.exports = {
-    // You can disable the fontSize core plugin if you don't need non fluid font sizes. 
-    // If you don't disable it, the fluid-type plugin simply overrule the default font-sizes if the keys are the same.
-    // Or you can use both alongside when you set an prefix in the settings
-    corePlugins: {
-        fontSize: false,
-        // ...
-    },
-    plugins: [
-        require('tailwindcss-fluid-type'),
-        // ...
-    ],
+  // You can disable the fontSize core plugin if you don't need non fluid font sizes.
+  // If you don't disable it, the fluid-type plugin simply overrule the default font-sizes if the keys are the same.
+  // Or you can use both alongside when you set an prefix in the settings
+  corePlugins: {
+    fontSize: false,
+    // ...
+  },
+  plugins: [
+    require("tailwindcss-fluid-type"),
+    // ...
+  ],
 };
 ```
 
@@ -41,9 +40,8 @@ module.exports = {
 Nothing changed here to the default tailwindcss configuration:
 
 ```html
-
 <article>
-    <h1 class="text-xl">Fluid type</h1>
+  <h1 class="text-xl">Fluid type</h1>
 </article>
 ```
 
@@ -53,8 +51,10 @@ The plugin comes with a default configuration (see below) but it's possible to c
 As default, we use `rem` for better accessibility, but you can also use `px`.
 
 ---
+
 > **_Important Note:_**  
 > If you set values you have to set all values that you need for your `font-sizes`. There is no value merging here.
+
 ---
 
 ### Default configuration
@@ -62,45 +62,45 @@ As default, we use `rem` for better accessibility, but you can also use `px`.
 ```js
 // tailwind.config.js
 module.exports = {
-    plugins: [
-        require('tailwindcss-fluid-type')({
-            // your fluid type settings
-            // works only with unitless numbers
-            // This numbers are the defaults settings
-            settings: {
-                fontSizeMin: 1.125, // 1.125rem === 18px
-                fontSizeMax: 1.25, // 1.25rem === 20px
-                ratioMin: 1.125, // Multiplicator Min
-                ratioMax: 1.2, // Multiplicator Max
-                screenMin: 20, // 20rem === 320px
-                screenMax: 96, // 96rem === 1536px
-                unit: 'rem', // default is rem but it's also possible to use 'px'
-                prefix: '', // set a prefix to use it alongside the default font sizes
-                extendValues: true, // When you set extendValues to true it will extend the default values. Set it to false to overwrite the values.
-            },
-            // Creates the text-xx classes
-            // This are the default settings and analog to the tailwindcss defaults
-            // Each `lineHeight` is set unitless and we think that's the way to go especially in context with fluid type.
-            values: {
-                'xs': [-2, 1.6],
-                'sm': [-1, 1.6],
-                'base': [0, 1.6],
-                'lg': [1, 1.6],
-                'xl': [2, 1.2],
-                '2xl': [3, 1.2],
-                '3xl': [4, 1.2],
-                '4xl': [5, 1.1],
-                '5xl': [6, 1.1],
-                '6xl': [7, 1.1],
-                '7xl': [8, 1],
-                '8xl': [9, 1],
-                '9xl': [10, 1],
-            },
-        }),
-    ],
-    variants: {
-        fluidType: ['responsive']
-    }
+  plugins: [
+    require("tailwindcss-fluid-type")({
+      // your fluid type settings
+      // works only with unitless numbers
+      // This numbers are the defaults settings
+      settings: {
+        fontSizeMin: 1.125, // 1.125rem === 18px
+        fontSizeMax: 1.25, // 1.25rem === 20px
+        ratioMin: 1.125, // Multiplicator Min
+        ratioMax: 1.2, // Multiplicator Max
+        screenMin: 20, // 20rem === 320px
+        screenMax: 96, // 96rem === 1536px
+        unit: "rem", // default is rem but it's also possible to use 'px'
+        prefix: "", // set a prefix to use it alongside the default font sizes
+        extendValues: true, // When you set extendValues to true it will extend the default values. Set it to false to overwrite the values.
+      },
+      // Creates the text-xx classes
+      // This are the default settings and analog to the tailwindcss defaults
+      // Each `lineHeight` is set unitless and we think that's the way to go especially in context with fluid type.
+      values: {
+        xs: [-2, 1.6],
+        sm: [-1, 1.6],
+        base: [0, 1.6],
+        lg: [1, 1.6],
+        xl: [2, 1.2],
+        "2xl": [3, 1.2],
+        "3xl": [4, 1.2],
+        "4xl": [5, 1.1],
+        "5xl": [6, 1.1],
+        "6xl": [7, 1.1],
+        "7xl": [8, 1],
+        "8xl": [9, 1],
+        "9xl": [10, 1],
+      },
+    }),
+  ],
+  variants: {
+    fluidType: ["responsive"],
+  },
 };
 ```
 
@@ -111,15 +111,15 @@ It is also possible to set just the `fontSize` without set the `lineHeight`
 ```js
 // tailwind.config.js
 module.exports = {
-    plugins: [
-        require('tailwindcss-fluid-type')({
-            values: {
-                // ...
-                'base': 0,
-                // ...
-            }
-        }),
-    ]
+  plugins: [
+    require("tailwindcss-fluid-type")({
+      values: {
+        // ...
+        base: 0,
+        // ...
+      },
+    }),
+  ],
 };
 ```
 
@@ -131,20 +131,21 @@ documentation. `letterSpacing` can be all values that you like.
 ```js
 // tailwind.config.js
 module.exports = {
-    plugins: [
-        require('tailwindcss-fluid-type')({
-            values: {
-                // ...
-                'base': [0,
-                    {
-                        lineHeight: 1.6,
-                        letterSpacing: '-0.1rem',
-                    }
-                ],
-                // ...
-            }
-        }),
-    ]
+  plugins: [
+    require("tailwindcss-fluid-type")({
+      values: {
+        // ...
+        base: [
+          0,
+          {
+            lineHeight: 1.6,
+            letterSpacing: "-0.1rem",
+          },
+        ],
+        // ...
+      },
+    }),
+  ],
 };
 ```
 
@@ -155,25 +156,25 @@ module.exports = {
 ```js
 // tailwind.config.js
 module.exports = {
-    plugins: [
-        require('tailwindcss-fluid-type')({
-            settings: {
-                fontSizeMin: 1.125,
-                fontSizeMax: 1.25,
-                ratioMin: 1.125,
-                ratioMax: 1.2,
-                screenMin: 20,
-                screenMax: 96,
-                unit: 'rem',
-                prefix: ''
-            },
-            values: {
-                // ...
-                'base': 0,
-                // ...
-            }
-        }),
-    ]
+  plugins: [
+    require("tailwindcss-fluid-type")({
+      settings: {
+        fontSizeMin: 1.125,
+        fontSizeMax: 1.25,
+        ratioMin: 1.125,
+        ratioMax: 1.2,
+        screenMin: 20,
+        screenMax: 96,
+        unit: "rem",
+        prefix: "",
+      },
+      values: {
+        // ...
+        base: 0,
+        // ...
+      },
+    }),
+  ],
 };
 ```
 
@@ -183,7 +184,11 @@ module.exports = {
 
 ```css
 .text-base {
-    font-size: clamp(1.125rem, calc(1.125rem + (1.25 - 1.125) * ((100vw - 20rem) / (96 - 20))), 1.25rem);
+  font-size: clamp(
+    1.125rem,
+    calc(1.125rem + (1.25 - 1.125) * ((100vw - 20rem) / (96 - 20))),
+    1.25rem
+  );
 }
 ```
 
@@ -192,25 +197,25 @@ module.exports = {
 ```js
 // tailwind.config.js
 module.exports = {
-    plugins: [
-        require('tailwindcss-fluid-type')({
-            settings: {
-                fontSizeMin: 1.125,
-                fontSizeMax: 1.25,
-                ratioMin: 1.125,
-                ratioMax: 1.2,
-                screenMin: 20,
-                screenMax: 96,
-                unit: 'rem',
-                prefix: ''
-            },
-            values: {
-                // ...
-                'base': [0, 1.6],
-                // ...
-            }
-        }),
-    ]
+  plugins: [
+    require("tailwindcss-fluid-type")({
+      settings: {
+        fontSizeMin: 1.125,
+        fontSizeMax: 1.25,
+        ratioMin: 1.125,
+        ratioMax: 1.2,
+        screenMin: 20,
+        screenMax: 96,
+        unit: "rem",
+        prefix: "",
+      },
+      values: {
+        // ...
+        base: [0, 1.6],
+        // ...
+      },
+    }),
+  ],
 };
 ```
 
@@ -220,8 +225,12 @@ module.exports = {
 
 ```css
 .text-base {
-    font-size: clamp(1.125rem, calc(1.125rem + (1.25 - 1.125) * ((100vw - 20rem) / (96 - 20))), 1.25rem);
-    line-height: 1.6;
+  font-size: clamp(
+    1.125rem,
+    calc(1.125rem + (1.25 - 1.125) * ((100vw - 20rem) / (96 - 20))),
+    1.25rem
+  );
+  line-height: 1.6;
 }
 ```
 
@@ -230,28 +239,31 @@ module.exports = {
 ```js
 // tailwind.config.js
 module.exports = {
-    plugins: [
-        require('tailwindcss-fluid-type')({
-            settings: {
-                fontSizeMin: 1.125,
-                fontSizeMax: 1.25,
-                ratioMin: 1.125,
-                ratioMax: 1.2,
-                screenMin: 20,
-                screenMax: 96,
-                unit: 'rem',
-                prefix: '',
-            },
-            values: {
-                // ...
-                'base': [0, {
-                    lineHeight: 1.6,
-                    letterSpacing: '-0.1rem',
-                }],
-                // ...
-            }
-        }),
-    ]
+  plugins: [
+    require("tailwindcss-fluid-type")({
+      settings: {
+        fontSizeMin: 1.125,
+        fontSizeMax: 1.25,
+        ratioMin: 1.125,
+        ratioMax: 1.2,
+        screenMin: 20,
+        screenMax: 96,
+        unit: "rem",
+        prefix: "",
+      },
+      values: {
+        // ...
+        base: [
+          0,
+          {
+            lineHeight: 1.6,
+            letterSpacing: "-0.1rem",
+          },
+        ],
+        // ...
+      },
+    }),
+  ],
 };
 ```
 
@@ -261,25 +273,30 @@ module.exports = {
 
 ```css
 .text-base {
-    font-size: clamp(1.125rem, calc(1.125rem + (1.25 - 1.125) * ((100vw - 20rem) / (96 - 20))), 1.25rem);
-    line-height: 1.6;
-    letter-spacing: -0.1rem;
+  font-size: clamp(
+    1.125rem,
+    calc(1.125rem + (1.25 - 1.125) * ((100vw - 20rem) / (96 - 20))),
+    1.25rem
+  );
+  line-height: 1.6;
+  letter-spacing: -0.1rem;
 }
 ```
 
 ### Set a value as string
+
 ```js
 // tailwind.config.js
 module.exports = {
-    plugins: [
-        require('tailwindcss-fluid-type')({
-            values: {
-                // ...
-                '2xs': '11px',
-                // ...
-            }
-        }),
-    ]
+  plugins: [
+    require("tailwindcss-fluid-type")({
+      values: {
+        // ...
+        "2xs": "11px",
+        // ...
+      },
+    }),
+  ],
 };
 ```
 
@@ -289,7 +306,7 @@ module.exports = {
 
 ```css
 .text-2xs {
-    font-size: 11px;
+  font-size: 11px;
 }
 ```
 
@@ -298,14 +315,14 @@ module.exports = {
 ```js
 // tailwind.config.js
 module.exports = {
-    plugins: [
-        require('tailwindcss-fluid-type')({
-            settings: {
-                // ...
-                prefix: 'fluid-',
-            },
-        }),
-    ]
+  plugins: [
+    require("tailwindcss-fluid-type")({
+      settings: {
+        // ...
+        prefix: "fluid-",
+      },
+    }),
+  ],
 };
 ```
 
@@ -315,12 +332,45 @@ module.exports = {
 
 ```css
 .fluid-text-base {
-    font-size: clamp(1.125rem, calc(1.125rem + (1.25 - 1.125) * ((100vw - 20rem) / (96 - 20))), 1.25rem);
-    line-height: 1.6;
-    letter-spacing: -0.1rem;
+  font-size: clamp(
+    1.125rem,
+    calc(1.125rem + (1.25 - 1.125) * ((100vw - 20rem) / (96 - 20))),
+    1.25rem
+  );
+  line-height: 1.6;
+  letter-spacing: -0.1rem;
 }
 ```
 
+#### 👉🏽 Compability with Tailwind Merge
+
+To ensure compabibility with [`tailwind-merge`](https://github.com/dcastil/tailwind-merge), extends it's configuration to recognize `fluid-text` sizes.
+This enables seamless overriding and filtering of tailwind classes with `tailwind-merge` utility.
+
+```
+import { type ClassValue, clsx } from "clsx";
+import { extendTailwindMerge } from "tailwind-merge";
+
+const twMerge = extendTailwindMerge({
+  extend: {
+    classGroups: {
+      "font-size": [
+        {
+          "fluid-text": ["sm", "base", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl", "8xl", "9xl",
+          ],
+        },
+      ],
+    },
+  },
+});
+
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
+```
 
 ## 👉🏻 Live Demo
+
 [Fluid Type Live Demo](https://play.tailwindcss.com/TegGD6vkSM)
