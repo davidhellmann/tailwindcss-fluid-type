@@ -1,8 +1,9 @@
 const calcModularScale = require('./calcModularScale')
 const createData = require('./createData')
 const defaults = require("../config/defaults");
+const createLeadingClasses = require('./createLeadingClasses');
 
-module.exports = (options, e) => {
+module.exports = (options, e, theme) => {
     const data = createData(options, {}, defaults)
 
     if (data.values) {
@@ -47,9 +48,7 @@ module.exports = (options, e) => {
                 }
             }
 
-            return {
-                [`.${e(`${data.prefix}text-${key}`)}`]: output,
-            }
+            return createLeadingClasses(`.${e(`${data.prefix}text-${key}`)}`, output, e, theme)
         })
     }
 }

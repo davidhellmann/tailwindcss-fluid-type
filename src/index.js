@@ -5,8 +5,8 @@ const createThemeOptions = require('./utils/createThemeOptions')
 
 module.exports = plugin.withOptions(
     function (options) {
-        return function ({addUtilities, variants, e}) {
-            addUtilities(createClasses(options, e),
+        return function ({addUtilities, variants, e, theme}) {
+            addUtilities(createClasses(options, e, theme),
                 variants('fontSizeFluid', defaults.variants));
         };
     },
