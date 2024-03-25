@@ -371,7 +371,7 @@ export function cn(...inputs: ClassValue[]) {
 
 ```
 
-### Overwrite default leading
+### Overwrite default line-height
 
 Sometimes it may be useful to override the default line height that you set in your config. Therefore, this plugin supports the Tailwind font size line-height shorthand. This works as follows.
 
