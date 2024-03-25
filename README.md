@@ -371,6 +371,16 @@ export function cn(...inputs: ClassValue[]) {
 
 ```
 
+### Overwrite default leading
+
+Sometimes it may be useful to override the default line height that you set in your config. Therefore, this plugin supports the Tailwind font size line-height shorthand. This works as follows.
+
+```html
+<h1 class="text-9xl/snug">The quick brown fox jumps over the lazy dogs</h1>
+```
+
+See the [official Tailwind documentation](https://tailwindcss.com/blog/tailwindcss-v3-3#new-line-height-shorthand-for-font-size-utilities) for more information.
+
 ## 👉🏻 Live Demo
 
 [Fluid Type Live Demo](https://play.tailwindcss.com/TegGD6vkSM)
