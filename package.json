@@ -1,6 +1,6 @@
 {
   "name": "tailwindcss-fluid-type",
-  "version": "2.0.3",
+  "version": "2.0.5",
   "description": "Bring fluid type to tailwindcss",
   "main": "src/index.js",
   "license": "MIT",

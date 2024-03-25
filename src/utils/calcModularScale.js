@@ -10,8 +10,10 @@ module.exports = (value, data) => {
         const sFtSMax = data.settings?.screenMax
         const unit = data.unit
         const sFtUnit = typeof unit === 'string' ? unit : 'rem';
-        const ftMin = sFtMin * Math.pow(sFtRMin, value);
-        const ftMax = sFtMax * Math.pow(sFtRMax, value);
+        const minValue = sFtMin * Math.pow(sFtRMin, value);
+        const maxValue = sFtMax * Math.pow(sFtRMax, value);
+        const ftMin = Math.min(minValue, maxValue);
+        const ftMax = Math.max(minValue, maxValue);
         return `clamp(${ftMin}${sFtUnit}, calc(${ftMin}${sFtUnit} + ((${ftMax} - ${ftMin}) * ((100vw - ${sFtSMin}${sFtUnit}) / (${sFtSMax} - ${sFtSMin})))), ${ftMax}${sFtUnit})`;
     }
     return value;
