@@ -2,7 +2,10 @@
 
 ![Tailwincss Fluid Type](https://github.com/davidhellmann/tailwindcss-fluid-type/raw/main/tailwindcss-fluid-type.png)
 
-A plugin that makes the use of Fluid Type a breeze.
+A TailwindCSS plugin that simplifies using Fluid Type.
+
+## 👉🏻 Important
+This Version requires TailwindCSS V4.
 
 ## 👉🏻 Installation
 
@@ -82,6 +85,7 @@ module.exports = {
       // This are the default settings and analog to the tailwindcss defaults
       // Each `lineHeight` is set unitless and we think that's the way to go especially in context with fluid type.
       values: {
+        "2xs": [-3, 1.6],
         xs: [-2, 1.6],
         sm: [-1, 1.6],
         base: [0, 1.6],
@@ -95,6 +99,7 @@ module.exports = {
         "7xl": [8, 1],
         "8xl": [9, 1],
         "9xl": [10, 1],
+        "10xl": [11, 1],
       },
     }),
   ],
