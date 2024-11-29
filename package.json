@@ -1,6 +1,6 @@
 {
   "name": "tailwindcss-fluid-type",
-  "version": "3.0.0-.beta.1",
+  "version": "3.0.0-.beta.2",
   "description": "Bring fluid type to tailwindcss",
   "main": "src/index.js",
   "license": "MIT",
